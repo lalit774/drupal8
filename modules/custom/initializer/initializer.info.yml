@@ -9,3 +9,6 @@ package: Custom
 core: '8.x'
 dependencies:
   - colorbox
+
+library_dependencies:
+  - colorbox
