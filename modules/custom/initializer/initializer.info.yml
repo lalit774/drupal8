@@ -1,0 +1,11 @@
+name: 'Initializer'
+type: module
+description: 'Install with commonly used structure pre-configured for drupal 8 site.'
+package: Custom
+# version: VERSION
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2017-11-03
+core: '8.x'
+dependencies:
+  - colorbox
