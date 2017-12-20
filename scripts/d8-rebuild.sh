@@ -8,7 +8,7 @@ reset_database(){
     echo Default settings in database
     if [ ! -f sites/default/settings.php ];then
     echo Site name will be ${site_name}
-    drush si standard -y --account-name=dev --account-pass=dev --db-url=mysql://${db_name}:${db_password}@localhost/${site_name} --site-name=site_name
+    drush si minimal -y --account-name=dev --account-pass=dev --db-url=mysql://${db_name}:${db_password}@localhost/${site_name} --site-name=${site_name}
     # Install/Run initializer module
     drush en initializer -y
     fi
@@ -31,7 +31,7 @@ if [ ! $environment != drupal8* ];then
   exit
 fi
 
-site_name=environment
+site_name=$environment
 # give permission to  settings.php
 # Delete settings.php
 if [ -f sites/default/settings.php ];then
