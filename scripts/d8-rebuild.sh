@@ -57,5 +57,3 @@ else
 fi
 
 reset_database
-drush config-set system.performance css.preprocess 0 -y
-drush  config-set system.performance js.preprocess 0 -y
