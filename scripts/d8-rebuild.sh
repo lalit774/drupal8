@@ -8,12 +8,14 @@ reset_database(){
     echo Default settings in database
     if [ ! -f sites/default/settings.php ];then
     echo Site name will be ${site_name}
-    drush si minimal -y --account-name=dev --account-pass=dev --db-url=mysql://${db_name}:${db_password}@localhost/${site_name} --site-name=site_name
+    drush si standard -y --account-name=dev --account-pass=dev --db-url=mysql://${db_name}:${db_password}@localhost/${site_name} --site-name=site_name
     # Install/Run initializer module
     drush en initializer -y
     fi
     drush updb -y
     drush upwd dev --password="dev"
+    drush config-set system.performance css.preprocess 0 -y
+    drush  config-set system.performance js.preprocess 0 -y
     drush cache-rebuild
     return 1;
 }
@@ -55,3 +57,5 @@ else
 fi
 
 reset_database
+drush config-set system.performance css.preprocess 0 -y
+drush  config-set system.performance js.preprocess 0 -y

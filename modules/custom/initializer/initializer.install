@@ -6,9 +6,9 @@
  */
 
 /**
- * Implements hook_requirements().
+ * Implements hook_install().
  */
-function initializer_requirements($phase) {
+function initializer_install($phase) {
   if ($phase != 'runtime') {
     return array();
   }
