@@ -8,11 +8,7 @@
 /**
  * Implements hook_install().
  */
-function initializer_install($phase) {
-  if ($phase != 'runtime') {
-    return array();
-  }
-
+function initializer_install() {
   // Make sure the theme is installed
   $theme_handler = \Drupal::service('theme_handler');
   $theme_handler->install(['seven']);
