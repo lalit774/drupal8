@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the colorbox module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function initializer_requirements($phase) {
+  if ($phase != 'runtime') {
+    return array();
+  }
+
+  // Make sure the theme is installed
+  $theme_handler = \Drupal::service('theme_handler');
+  $theme_handler->install(['seven']);
+
+// Set it as the admin theme
+  $config = \Drupal::service('config.factory')->getEditable('system.theme');
+  $config->set('admin', 'seven')->save();
+}
