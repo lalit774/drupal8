@@ -4,6 +4,7 @@ description: 'This is a initializer module.'
 package: Custom
 # version: VERSION
 # core: 8.x
-
+dependencies:
+  - toolbar
 version: '8.x'
 core: '8.x'
