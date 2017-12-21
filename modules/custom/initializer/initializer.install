@@ -16,4 +16,5 @@ function initializer_install() {
 // Set it as the admin theme
   $config = \Drupal::service('config.factory')->getEditable('system.theme');
   $config->set('admin', 'seven')->save();
+  $config->set('use_admin_theme', true)->save();
 }
