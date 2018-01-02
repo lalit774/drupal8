@@ -3,9 +3,11 @@ name: Drupal2018
 description: 'This is a drupal2018 theme.'
 type: theme
 core: '8.x'
-stylesheet-remove:
-  - core/themes/stable/css/system/components/tree-child.module.css
-  - core/themes/stable/css/system/components/tablesort.module.css
+
 libraries:
   - basic/global-css
   - basic/global-js
+
+stylesheet-remove:
+  - core/themes/stable/css/system/components/tree-child.module.css
+  - core/themes/stable/css/system/components/tablesort.module.css
