@@ -1,13 +1,11 @@
 # This is a custom drupal2018 theme file
-name: drupal2018
-type: theme
+name: Drupal2018
 description: 'This is a drupal2018 theme.'
-package: Custom
-# version: VERSION
-# core: 8.x
-
+type: theme
 core: '8.x'
-
+stylesheet-remove:
+  - core/themes/stable/css/system/components/tree-child.module.css
+  - core/themes/stable/css/system/components/tablesort.module.css
 libraries:
   - basic/global-css
   - basic/global-js
