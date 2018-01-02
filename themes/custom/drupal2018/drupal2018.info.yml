@@ -7,6 +7,6 @@ libraries:
   - drupal2018/global-css
   - drupal2018/global-js
 
-stylesheet-remove:
+stylesheets-remove:
   - /core/themes/stable/css/system/components/tree-child.module.css
   - /core/themes/stable/css/system/components/tablesort.module.css
