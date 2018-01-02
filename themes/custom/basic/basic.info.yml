@@ -1,7 +1,6 @@
 # This is a custom basic theme file
 name: Basic
 type: theme
-base theme: classy
 description: 'This is a basic theme.'
 package: Custom
 # version: VERSION
