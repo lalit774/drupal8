@@ -8,5 +8,5 @@ libraries:
   - drupal2018/global-js
 
 stylesheet-remove:
-  - core/themes/stable/css/system/components/tree-child.module.css
-  - core/themes/stable/css/system/components/tablesort.module.css
+  - /core/themes/stable/css/system/components/tree-child.module.css
+  - /core/themes/stable/css/system/components/tablesort.module.css
