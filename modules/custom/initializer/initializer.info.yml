@@ -11,5 +11,6 @@ dependencies:
   - link
   - image
   - datetime
+  - video
 version: '8.x'
 core: '8.x'
