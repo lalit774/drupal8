@@ -4,11 +4,12 @@ dependencies:
   module:
     - node
     - text
-id: video.educational_title
-field_name: educational_title
+id: node.field_educational_title
+field_name: field_educational_title
 entity_type: node
 type: text_with_summary
-settings: {  }
+settings:
+  case_sensitive: false
 module: text
 locked: false
 cardinality: 1

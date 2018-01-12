@@ -1,9 +1,5 @@
 langcode: en
 status: true
-dependencies:
-  enforced:
-    module:
-      - initializer
 name: 'Video'
 type: video
 description: 'Content type that can be used to add <em>video</em> page.'
