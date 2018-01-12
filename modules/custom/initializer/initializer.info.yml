@@ -6,5 +6,10 @@ package: Custom
 # core: 8.x
 dependencies:
   - toolbar
+  - field_ui
+  - options
+  - link
+  - image
+  - datetime
 version: '8.x'
 core: '8.x'

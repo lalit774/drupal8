@@ -1,20 +1,20 @@
-langcode: en
+/*langcode: en
 status: true
 dependencies:
-  cofig:
-    - field.storage.node.educational_title
+  config:
     - node.type.video
   module:
     - text
-nid: node.video.educational_title
+id: node.video.educational_title
 field_name: educational_title
 entity_type: node
 bundle: video
 label: 'Educational Title'
 description: 'Educational Title.'
 required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   display_summary: true
-field_type: text_with_summary
+field_type: text_with_summary*/
