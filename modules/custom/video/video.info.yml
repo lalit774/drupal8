@@ -3,4 +3,8 @@ type: module
 description: 'Adds video content type.'
 core: 8.x
 dependencies:
+  - field
   - node
+  - taxonomy
+  - text
+  - user
