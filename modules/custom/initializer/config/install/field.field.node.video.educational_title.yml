@@ -2,8 +2,10 @@ langcode: en
 status: true
 dependencies:
   cofig:
+    - field.storage.node.educational_title
     - node.type.video
-   module: text
+  module:
+    - text
 nid: node.video.educational_title
 field_name: educational_title
 entity_type: node
@@ -14,5 +16,5 @@ required: false
 default_value: {  }
 default_value_callback: ''
 settings:
- display_summary: true
+  display_summary: true
 field_type: text_with_summary
