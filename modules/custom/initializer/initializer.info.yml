@@ -11,6 +11,11 @@ dependencies:
   - link
   - image
   - datetime
-  - video
+  - taxonomy
+
+  # custom module functionality
+
+  - drupal8_taxonomy
+  #sss- video
 version: '8.x'
 core: '8.x'

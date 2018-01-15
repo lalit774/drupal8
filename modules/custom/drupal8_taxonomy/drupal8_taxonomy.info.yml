@@ -1,4 +1,4 @@
-name: Site Taxonomy
+name: Drupal8 Taxonomy
 type: module
 description: 'Adds Taxonomy.'
 core: 8.x
