@@ -10,15 +10,19 @@
  */
 function initializer_install() {
   // Make sure the theme is installed
-  $theme_handler = \Drupal::service('theme_handler');
+  $theme_handler = Drupal::service('theme_handler');
   $theme_handler->install(['seven']);
 
 // Set it as the admin theme
-  $config = \Drupal::service('config.factory')->getEditable('system.theme');
+  $config = Drupal::service('config.factory')->getEditable('system.theme');
   $config->set('admin', 'seven')->save();
   $config->set('use_admin_theme', true)->save();
 
-
-
-
+  $user = User::create(array(
+      'name' => 'content_editor',
+      'mail' => 'test@test.com',
+      'pass' => 'changeme',
+      'status' => 1,
+  ));
+  $user -> save();
 }

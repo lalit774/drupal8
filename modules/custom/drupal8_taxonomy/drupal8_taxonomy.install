@@ -12,15 +12,6 @@ use Drupal\taxonomy\Entity\Term;
  * Implements hook_install().
  */
 function drupal8_taxonomy_install() {
-
-    $user = User::create(array(
-        'name' => 'test',
-        'mail' => 'test@test.com',
-        'pass' => 'password',
-        'status' => 1,
-    ));
-    $user -> save();
-
     $categories = ['Preschool', 'School Age'];
     foreach ($categories as $category) {
         $term = Term::create(array(
