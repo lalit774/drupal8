@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Keywords
-vid: keywords
-description: ''
-hierarchy: 0
-weight: 0
