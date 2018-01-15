@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the colorbox module.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ */
+function drupal8_taxonomy_install() {
+
+    $user = User::create(array(
+        'name' => 'test',
+        'mail' => 'test@test.com',
+        'pass' => 'password',
+        'status' => 1,
+    ));
+    $user -> save();
+
+    $categories = ['Preschool', 'School Age'];
+    foreach ($categories as $category) {
+        $term = Term::create(array(
+            'parent' => array(),
+            'name' => $category,
+            'vid' => 'age_group',
+        ))->save();
+    }
+}
