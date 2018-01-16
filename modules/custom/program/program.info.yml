@@ -1,0 +1,9 @@
+name: Program
+description: 'Provides Program content type and related configuration. program content type.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - node
+  - text
+  - user

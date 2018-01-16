@@ -17,5 +17,6 @@ dependencies:
 
   - drupal8_taxonomy
   - video
+  - program
 version: '8.x'
 core: '8.x'
