@@ -13,6 +13,9 @@ dependencies:
   - datetime
   - taxonomy
 
+  #contrib module functionality
+  - field_group
+
   # custom module functionality
 
   - drupal8_taxonomy
