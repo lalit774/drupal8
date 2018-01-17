@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bubble_thumbnail
+    - node.type.program
+  module:
+    - image
+id: node.program.field_bubble_thumbnail
+field_name: field_bubble_thumbnail
+entity_type: node
+bundle: program
+label: 'Bubble Thumbnail'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: program_character_banner_images
+  file_extensions: jpg
+  max_filesize: ''
+  max_resolution: 200x200
+  min_resolution: 200x200
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
