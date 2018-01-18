@@ -21,7 +21,8 @@ dependencies:
   # custom module functionality
 
   - drupal8_taxonomy
-  - video
   - program
+  - video
+
 version: '8.x'
 core: '8.x'
