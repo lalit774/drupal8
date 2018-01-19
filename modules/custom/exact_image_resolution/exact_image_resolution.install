@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Any code that has to be run when the module is installed and uninstalled
+ */
+
+/**
+ * Implements hook_install().
+ */
+function exact_image_resolution_install() {
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function exact_image_resolution_uninstall() {
+  //remove all lingering instance settings for exact_resolution
+  $result = db_query(
+    "SELECT ci.entity_type, ci.field_name, ci.bundle  from field_config c INNER JOIN field_config_instance ci on c.id = ci.field_id where c.type = 'image'"
+  );
+
+  foreach ($result as $record){
+    $instance = field_info_instance($record->entity_type, $record->field_name, $record->bundle);
+    unset($instance['settings']['exact_resolution']);
+    field_update_instance($instance);
+    field_cache_clear();
+  }
+}
+

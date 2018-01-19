@@ -1,0 +1,11 @@
+name: Exact Image Resolution
+description: 'Addition to the image module to include exact sizes for images.'
+type: module
+dependencies:
+  - image
+
+# Information added by Drupal.org packaging script on 2018-01-18
+version: '8.x-4.0'
+core: '8.x'
+project: 'config_update'
+datestamp: 1516223156

@@ -1,0 +1,126 @@
+<?php
+/**
+ * @file
+ *   Main functionality of this module.
+ */
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function exact_image_resolution_field_info_alter(&$info) {
+  $info['image']['instance_settings']['exact_resolution'] = '';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function exact_image_resolution_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
+
+  if($form['#field']['type'] == 'image'){
+    $settings = $form['#instance']['settings'];
+
+    $exact_resolution = explode('x', $settings['exact_resolution']) + array('', '');
+
+    $form['instance']['settings']['exact_resolution'] = array(
+      '#type' => 'item',
+      '#title' => t('Exact image resolution'),
+      '#element_validate' => array('_image_field_resolution_validate'),
+      '#weight' => 4.3,
+      '#field_prefix' => '<div class="container-inline">',
+      '#field_suffix' => '</div>',
+      '#description' => t('The exact allowed image size expressed as WIDTHxHEIGHT (e.g. 640x480). Leave blank for no restriction. If an image is uploaded outside their dimensions, it will be rejected.'),
+    );
+
+    $form['instance']['settings']['exact_resolution']['x'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Exact width'),
+      '#title_display' => 'invisible',
+      '#default_value' => $exact_resolution[0],
+      '#size' => 5,
+      '#maxlength' => 5,
+      '#field_suffix' => ' x ',
+    );
+    $form['instance']['settings']['exact_resolution']['y'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Exact height'),
+      '#title_display' => 'invisible',
+      '#default_value' => $exact_resolution[1],
+      '#size' => 5,
+      '#maxlength' => 5,
+      '#field_suffix' => ' ' . t('pixels'),
+    );
+  }
+ }
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function exact_image_resolution_field_widget_form_alter(&$element, &$form_state, $context){
+
+  $settings = $context['instance']['settings'];
+  foreach(element_children($element) as $delta){
+    // Add upload resolution validation.
+    if (!empty($settings['exact_resolution'])) {
+      $element[$delta]['#upload_validators']['exact_image_resolution_validate_exact_image_resolution'] = array($settings['exact_resolution']);
+    }
+  }
+
+  if ($context['field']['cardinality'] == 1) {
+    // If there's only one field, return it as delta 0.
+    if (!empty($settings['exact_resolution']) && empty($element[0]['#default_value']['fid'])) {
+      //Only add a description for exact resolution if exact resolution is not equal to max resolution and min resolution to avoid having the same description outputed twice
+      $description =
+      ($settings['max_resolution'] == $settings['min_resolution']) && ($settings['min_resolution'] == $settings['exact_resolution'])
+      ? ''
+      : t('Images must be exactly !dimensions pixels.', array('!dimensions' => '<strong>' . $settings['exact_resolution'] . '</strong>'));
+
+      $element[0]['#description'] = theme('file_upload_help', array('description' => field_filter_xss($description), 'upload_validators' => $element[0]['#upload_validators']));
+    }
+  }
+  else {
+    if (!empty($settings['exact_resolution'])){
+
+      $description =
+      ($settings['max_resolution'] == $settings['min_resolution']) && ($settings['min_resolution'] == $settings['exact_resolution'])
+      ? ''
+      : t('Images must be exactly !dimensions pixels.', array('!dimensions' => '<strong>' . $settings['exact_resolution'] . '</strong>'));
+
+      $element['#file_upload_description'] = theme('file_upload_help', array('description' => field_filter_xss($description), 'upload_validators' => $element[0]['#upload_validators']));
+    }
+  }
+}
+
+/**
+ * Verifies that image dimensions are exactly within the given dimensions.
+ *
+ * Non-image files will be ignored.
+ *
+ * @param $file
+ *   A Drupal file object. This function may resize the file affecting its
+ *   size.
+ * @param $dimensions
+ *   An optional string in the form WIDTHxHEIGHT. This will check that the
+ *   image meets the exact size. A value of 0 indicates no restriction.
+ *
+ * @return
+ *   An array. If the file is an image and did not meet the requirements, it
+ *   will contain an error message.
+ *
+ * @see hook_file_validate()
+ */
+function exact_image_resolution_validate_exact_image_resolution(stdClass $file, $dimensions = 0) {
+  $errors = array();
+
+  // Check first that the file is an image.
+  if ($info = image_get_info($file->uri)) {
+    if ($dimensions) {
+      // Check that it is the exact dimensions.
+      list($width, $height) = explode('x', $dimensions);
+      if ($info['width'] != $width || $info['height'] != $height) {
+          $errors[] = t('The image is not exact; the dimensions must be %dimensions pixels.', array('%dimensions' => $dimensions));
+      }
+    }
+  }
+
+  return $errors;
+}
