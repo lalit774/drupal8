@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  border: 1px solid red;
+  width: 170px;
+  height: 170px;
+  //margin-left: 15px;
+  //padding-left: 20px;
+  float:left;
+}
+div {
+    border: 3px solid #4CAF50;
+    padding: 5px;
+}
+p{
+  margin: 0 auto;
+  border: 1px solid yellow;
+ // width: 80%;
+  text-align: center;
+//  display: block;
+  //visibility: hidden;
+}
+
+.img1 {
+    float: right;
+}
+
+.clearfix {
+    overflow: auto;
+    position: relative;
+    border: 1px solid red;
+    top: 0;
+    background-color: blue;
+}
+
+.img2 {
+   /* float: none;*/
+  float: right;
+}
+
+
+.dur p{
+  position: absolute;
+  //z-index: -1;
+}
+
+
+</style>
+</head>
+<body>
+
+<p>In this example, the image will float to the right in the paragraph, and the text in the paragraph will wrap around the image.</p>
+
+<p>
+  <img src="https://www.w3schools.com/css/pineapple.jpg" alt="Pineapple" />
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+</p>
+
+<div>
+<img class="img1" src="https://www.w3schools.com/css/pineapple.jpg" alt="Pineapple" width="170" height="170">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...</p></div>
+
+<p style="clear:right">Add a clearfix class with overflow: auto; to the containing element, to fix this problem:</p>
+
+<div class="clearfix">
+<img class="img2" src="https://www.w3schools.com/css/pineapple.jpg" alt="Pineapple" width="170" height="170">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...</p></div>
+<div class="dur">
+
+    <p>1:1000</p>
+    <img src="https://www.w3schools.com/css/pineapple.jpg" alt="Pineapple" width="170" height="170">
+
+</div>
+
+
+</body>
+</html>

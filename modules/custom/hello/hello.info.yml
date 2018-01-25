@@ -1,0 +1,10 @@
+name: Hello
+type: module
+description: 'This is a hello module.'
+package: Custom
+# version: VERSION
+# core: 8.x
+dependencies:
+
+version: '8.x'
+core: '8.x'

@@ -1,0 +1,7 @@
+hello:
+  path: 'hello/hi'
+  defaults:
+    _title: 'Hi message'
+    _controller: 'Drupal\hello\Controller\Hello::content'
+  requirements:
+    _permission: 'access content'
