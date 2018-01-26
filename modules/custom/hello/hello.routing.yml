@@ -5,3 +5,10 @@ hello:
     _controller: 'Drupal\hello\Controller\Hello::content'
   requirements:
     _permission: 'access content'
+contact_list:
+  path: 'hello/list'
+  defaults:
+    _title: 'List'
+    _controller: '\Drupal\hello\Controller\HelloContactController::entryList'
+  requirements:
+    _permission: 'access content'
