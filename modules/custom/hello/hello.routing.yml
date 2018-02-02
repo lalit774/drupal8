@@ -9,6 +9,6 @@ contact_list:
   path: 'hello/list'
   defaults:
     _title: 'List'
-    _controller: '\Drupal\hello\Controller\HelloContactController::entryList'
+    _controller: '\Drupal\hello\Controller\Hello::entryList'
   requirements:
     _permission: 'access content'
